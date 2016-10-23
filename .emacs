@@ -45,9 +45,6 @@
 (use-package anaconda-mode
   :config
   (add-hook 'python-mode-hook 'anaconda-mode))
-(use-package anaconda-eldoc-mode
-  :config
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
 
 ;; auto-complete -  Emacs auto-complete package
 ;; https://github.com/auto-complete/auto-complete
@@ -233,6 +230,8 @@
 (use-package json-reformat)
 (use-package json-snatcher)
 (use-package logito)
+;; Manage Git inside Emacs
+;; https://github.com/magit/magit
 (use-package magit)
 (use-package magit-popup)
 (use-package markdown-mode)
@@ -388,3 +387,4 @@
 
 ;; hide default message
 (setq inhibit-startup-message t)
+
