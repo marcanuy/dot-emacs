@@ -27,6 +27,15 @@
 ;; for all packages
 (setq use-package-always-ensure t)
 
+;;;;;;;;;;;;;;;;
+;; global-map ;;
+;;;;;;;;;;;;;;;;
+
+;;; C-
+
+;; replace default buffer-menu
+(bind-key "C-x C-b" #'ibuffer) 
+
 ;;;;;;;;;;;;;;;;;;;
 ;; Load packages ;;
 ;;;;;;;;;;;;;;;;;;;
@@ -86,7 +95,6 @@
   (global-company-mode t)
   (add-to-list 'company-backends '(company-anaconda :with company-capf))
   (add-to-list 'company-backends 'company-emoji)
-  (add-to-list 'company-backends 'company-restclient)
   (add-to-list 'company-backends 'company-ghc)
   (add-to-list 'company-backends 'company-ghci)
   (add-to-list 'company-backends 'company-go)
@@ -103,7 +111,12 @@
   :config
   (add-hook 'python-mode-hook 'anaconda-mode))
 (use-package company-emoji)
+(use-package company-ghc)
+(use-package company-ghci)
+(use-package company-go)
+;; Completion back-end for Python JEDI.
 (use-package company-jedi)
+
 ;; https://github.com/xcwen/ac-php
 (use-package company-php)
 
@@ -209,6 +222,8 @@
 ;;(use-package helm-core)
 (use-package helm-google)
 (use-package helm-gtags)
+;; http://www.emacswiki.org/help-fns+.el
+(use-package help-fns+)
 (use-package hi-lock
   :bind (("M-o l" . highlight-lines-matching-regexp)
          ("M-o r" . highlight-regexp)
@@ -217,7 +232,10 @@
   :config
   (highlight-blocks-mode t))
 (use-package ht)
+;; An Emacs mode to manage Jekyll blogs
+;; https://github.com/nibrahim/Hyde
 (use-package hyde)
+;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
 (use-package inf-php)
 (use-package inf-ruby)
@@ -303,8 +321,11 @@
 ;; indicating that Rainbow mode is in effect.
 (use-package rainbow-mode)
 (use-package rake)
+;; https://github.com/pashky/restclient.el
+;; This is a tool to manually explore and test HTTP REST webservices.
+;; Runs queries from a plain-text query sheet, displays results as a
+;; pretty-printed XML, JSON and even images.
 (use-package restclient)
-
 ;; Robe - Code navigation, documentation lookup and completion for Ruby
 ;; https://github.com/dgutov/robe
 (use-package robe
@@ -339,22 +360,40 @@
          ("M-p" . term-send-up)
          ("M-n" . term-send-down)))
 (use-package trr)
-(use-package typing-game)
 (use-package typit)
-(use-package use-package)
 (use-package virtualenvwrapper)
 (use-package visual-fill-column)
-(use-package w3)
 (use-package web-completion-data)
-(use-package web-mode)
+;; web-mode is an autonomous emacs major-mode for editing web templates.
+;; https://github.com/fxbois/web-mode
+;; http://web-mode.org/
+;; HTML documents can embed parts (CSS / JavaScript) and blocks
+;; (client / server side).
+(use-package web-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  ;; Using web-mode for editing plain HTML files can be done this way
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  ;; You can also edit plain js, jsx, css, scss, xml files.
+  )
 (use-package with-editor)
+;; Writeroom-mode: distraction-free writing for Emacs. 
+;; https://github.com/joostkremers/writeroom-mode
+;; can be activated in a buffer by calling M-x writeroom-mode RET
 (use-package writeroom-mode)
 (use-package xcscope)
 (use-package yaml-mode)
 
 ;; A template system for Emacs
 ;; https://github.com/joaotavora/yasnippet
-;; snippets repository https://github.com/AndreaCrotti/yasnippet-snippets cloned
+;; snippets repository https://github.com/AndreaCrotti/yasnippet-snippets
+;; cloned in yasnippet/snippets
 (use-package yasnippet
   :config
   (yas-global-mode t))
@@ -387,4 +426,3 @@
 
 ;; hide default message
 (setq inhibit-startup-message t)
-
