@@ -57,6 +57,47 @@ Example:
    ("C-c SPC" . ace-jump-mode-pop-mark)))
 ~~~
 
+# .emacs file layout
+
+~~~ lisp
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; bootstrap package managers ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'package)
+...
+
+;;;;;;;;;;;;;;;;
+;; global-map ;;
+;;;;;;;;;;;;;;;;
+
+;;; C-
+
+;; replace default buffer-menu
+(bind-key "C-x C-b" #'ibuffer) 
+...
+
+;;;;;;;;;;;;;;;;;;;
+;; Load packages ;;
+;;;;;;;;;;;;;;;;;;;
+
+(use-package ace-jump-mode)
+...
+
+;;;;;;;;;;;;
+;; Themes ;;
+;;;;;;;;;;;;
+
+..
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Customizing default packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(show-paren-mode t)
+...
+~~~
+
 # License
 
 The MIT License (MIT)

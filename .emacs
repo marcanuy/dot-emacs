@@ -1,10 +1,10 @@
-;;(menu-bar-mode -1)
-(tool-bar-mode -1)
-
 ;; http://stackoverflow.com/questions/1217180/how-do-i-byte-compile-everything-in-my-emacs-d-directory
 ;;(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 
-;; bootstrap package managers
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; bootstrap package managers ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'package)
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/") t)
@@ -45,16 +45,20 @@
 (use-package ace-jump-mode
   :bind  (("C-." . ace-jump-mode)
 	  ("C-c SPC" . ace-jump-mode-pop-mark)))
-
 (use-package ac-php)
 (use-package ac-php-core)
+;; ace-window
+;; https://github.com/abo-abo/ace-window
+(use-package ace-window
+  :bind ("M-p" . ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 ;; Code navigation, documentation lookup and completion for Python
 ;; https://github.com/proofit404/anaconda-mode
 (use-package anaconda-mode
   :config
   (add-hook 'python-mode-hook 'anaconda-mode))
-
 ;; auto-complete -  Emacs auto-complete package
 ;; https://github.com/auto-complete/auto-complete
 (use-package auto-complete)
@@ -65,7 +69,6 @@
 (use-package bind-key)
 (use-package bundler)
 (use-package chess)
-
 ;; color-moccur 
 ;; (use-package color-moccur
 ;;   :commands (isearch-moccur isearch-all)
@@ -382,6 +385,8 @@
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   ;; You can also edit plain js, jsx, css, scss, xml files.
   )
+;; Use the Emacsclient as the $EDITOR of child processes
+;; https://github.com/magit/with-editor
 (use-package with-editor)
 ;; Writeroom-mode: distraction-free writing for Emacs. 
 ;; https://github.com/joostkremers/writeroom-mode
@@ -398,9 +403,11 @@
   :config
   (yas-global-mode t))
 
-;;(use-package zenburn-theme)
+;;;;;;;;;;;;
+;; Themes ;;
+;;;;;;;;;;;;
 
-;;;;;;;;;;;    themes    ;;;;;;;;;;;;
+;;(use-package zenburn-theme)
 ;;;;;;;;;;; black-themes ;;;;;;;;;;;;
 ;;(load-theme 'wheatgrass)
 ;;(load-theme 'alect-black)
@@ -416,6 +423,10 @@
 ;;(use-package alect-themes)
 ;;(use-package apropospriate-theme)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Customizing default packages ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (show-paren-mode t)
 (column-number-mode t)
 
@@ -426,3 +437,9 @@
 
 ;; hide default message
 (setq inhibit-startup-message t)
+
+;; Move between windows with Shift-ArrowKeys
+(windmove-default-keybindings)
+
+;;(menu-bar-mode -1)
+(tool-bar-mode -1)
