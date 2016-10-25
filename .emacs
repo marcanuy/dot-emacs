@@ -62,11 +62,16 @@
 ;; auto-complete -  Emacs auto-complete package
 ;; https://github.com/auto-complete/auto-complete
 (use-package auto-complete)
+;; Auto activate python virtualenvs
+;; http://github.com/marcwebbie/auto-virtualenv
 (use-package auto-virtualenv)
 ;; emacs-async - Simple library for asynchronous processing in Emacs
 ;; https://github.com/jwiegley/emacs-async
 (use-package async)
+;; A simple way to manage personal keybindings
 (use-package bind-key)
+;; Interact with Bundler from Emacs
+;; http://github.com/endofunky/bundler.el
 (use-package bundler)
 (use-package chess)
 ;; color-moccur 
@@ -80,9 +85,7 @@
 ;;   (setq isearch-lazy-highlight t)
 ;;   :config
 ;;   (use-package moccur-edit))
-
 (use-package command-log-mode)
-
 ;; Company autocomplete
 ;; http://company-mode.github.io/
 ;; Completion will start automatically after you type a few letters.
@@ -114,15 +117,17 @@
   :config
   (add-hook 'python-mode-hook 'anaconda-mode))
 (use-package company-emoji)
+;; company-mode completion backend for ghc-mod
+;; https://github.com/iquiw/company-ghc
 (use-package company-ghc)
+;; company backend which uses the current ghci process.
 (use-package company-ghci)
+;; company-mode backend for Go (using gocode)
 (use-package company-go)
 ;; Completion back-end for Python JEDI.
 (use-package company-jedi)
-
 ;; https://github.com/xcwen/ac-php
 (use-package company-php)
-
 ;; Documentation popup for Company - https://github.com/expez/company-quickhelp
 ;; You can adjust the time it takes for the documentation to pop up by changing company-quickhelp-delay.
 ;; If you don't want the help popup to appear automatically, but prefer it to the popup help buffer provided by company, you can set company-quickhelp-delay to nil and manually trigger the popup with M-h.
@@ -136,9 +141,11 @@
   :config
   (company-quickhelp-mode 1))
 
+(use-package company-restclient)
 ;; https://github.com/Alexander-Miller/company-shell
 (use-package company-shell)
-
+;; Plugin for autocompletion in html-mode, web-mode, jade-mode, slim-mode
+;; and use data of ac-html.
 ;; https://github.com/osv/company-web
 (use-package company-web
   :config
@@ -146,9 +153,9 @@
   (require 'company-web-jade) ; load company mode jade backend
   (require 'company-web-slim) ; load company mode slim backend
   )
-
+;; Concurrent utility functions for emacs lisp
+;; https://github.com/kiwanami/emacs-deferred/blob/master/README-concurrent.markdown
 (use-package concurrent)
-
 ;; https://github.com/jacksonrayhamilton/context-coloring
 ;;(use-package context-coloring)
 (use-package ctable)
@@ -156,7 +163,11 @@
 ;; A modern list library for Emacs
 ;; https://github.com/magnars/dash.el
 (use-package dash)
+;; Simple asynchronous functions for emacs lisp
+;; https://github.com/kiwanami/emacs-deferred
 (use-package deferred)
+;; Diminished modes are minor modes with no modeline display
+;; https://github.com/myrjola/diminish.el
 (use-package diminish)
 ;;https://github.com/thamer/diredful
 ;;(use-package diredful)
@@ -168,11 +179,17 @@
   (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   :config
   (load-theme 'dracula t))
-
+;; A RPC stack for the Emacs Lisp
+;; https://github.com/kiwanami/emacs-epc
 (use-package epc)
+;; Emacs Package Library
+;; http://github.com/cask/epl
 (use-package epl)
+;; Manipulate sqlite file from Emacs
 ;; https://github.com/mhayashi1120/Emacs-esqlite
 (use-package esqlite)
+;; Modern API for working with files and directories
+;; http://github.com/rejeep/f.el
 (use-package f)
 (use-package flymake-easy)
 (use-package flymake-php)
@@ -423,23 +440,32 @@
 ;;(use-package alect-themes)
 ;;(use-package apropospriate-theme)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Customizing default packages ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core packages customization ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Emacs 24.5.1 Base Packages
+;; /usr/share/emacs/24.5/lisp/
+
+;; menu-bar
+;;;; Toggle display of a menu bar on each frame (Menu Bar mode).
+;;;; (menu-bar-mode -1)
+;; paren
 (show-paren-mode t)
+;; simple
+;;;; Toggle column number display in the mode line
 (column-number-mode t)
-
-;; change ispell dictionary to use also with flymake-mode
-;; can be changed with command: ispell-change-dictionary
+;; startup
+;;;; hide default startup screen
+(setq inhibit-startup-message t)
+;; textmodes
+;;;; ispell
+;;;;;; change ispell dictionary to use also with flymake-mode
+;;;;;; can be changed with command: ispell-change-dictionary
 (setq ispell-dictionary "english")    ;set the default dictionary
 (put 'downcase-region 'disabled nil)
-
-;; hide default message
-(setq inhibit-startup-message t)
-
-;; Move between windows with Shift-ArrowKeys
-(windmove-default-keybindings)
-
-;;(menu-bar-mode -1)
+;; tool-bar
 (tool-bar-mode -1)
+;; windmove
+;;;; Move between windows with Shift-ArrowKeys
+(windmove-default-keybindings)

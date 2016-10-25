@@ -90,9 +90,10 @@ Example:
 
 ..
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Customizing default packages ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Core packages customization ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Following package paths
 
 (show-paren-mode t)
 ...
