@@ -15,7 +15,7 @@ packages from the following package repositories:
 * ELPA - [GNU Emacs Lisp Package Archive](https://elpa.gnu.org/)
 * MARMALADE - [Marmalade repo](http://marmalade-repo.org/)
 
-## Install
+# Install
 
 Put *.emacs* in any of the default init file paths:
 
@@ -23,7 +23,20 @@ Put *.emacs* in any of the default init file paths:
 - `~/.emacs.el`
 - `~/.emacs.d/init.el`
 
-## Conventions
+# Cheatsheet
+
+## Main key bindings and custom behaviour
+
+### Move between windows
+
+- Go directly to a window from a list of candidates: 
+  - `M-p` **ace-window**
+- Traverse the window list:
+  - `C-x o` **other-window**
+- Go directly to a speific word in any window
+  - `C-.` **ace-jump-mode**
+
+# Conventions
 
 Conventions followed when adding a package
 
