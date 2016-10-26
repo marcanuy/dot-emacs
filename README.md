@@ -25,7 +25,7 @@ Put *.emacs* in any of the default init file paths:
 
 # Cheatsheet
 
-## Main key bindings and custom behaviour
+## Custom behaviour notes
 
 ### Move between windows
 
@@ -35,6 +35,43 @@ Put *.emacs* in any of the default init file paths:
   - `C-x o` **other-window**
 - Go directly to a speific word in any window
   - `C-.` **ace-jump-mode**
+
+## Personal keybindings
+
+The list resulting after executing `M-x describe-personal-keybindings`.
+
+~~~
+Key name          Command                                 Comments
+----------------- --------------------------------------- ---------------------
+C-.               `ace-jump-mode'
+C-?               `company-complete'
+
+C-c SPC           `ace-jump-mode-pop-mark'
+C-c t             `term'
+
+C-x b             `helm-buffers-list'                     was `switch-to-buffer'
+C-x r b           `helm-bookmarks'                        was `bookmark-jump'
+
+C-x C-b           `ibuffer'                               was `list-buffers'
+C-x C-f           `helm-find-files'                       was `find-file'
+
+M-p               `ace-window'
+M-x               `helm-M-x'                              was `execute-extended-command'
+
+M-o l             `highlight-lines-matching-regexp'       was `facemenu-set-bold-italic'
+M-o r             `highlight-regexp'
+M-o w             `highlight-phrase'
+
+
+php-mode-map
+-------------------------------------------------------------------------------
+
+C-x c             `phpunit-current-class'
+C-x p             `phpunit-current-project'
+C-x t             `phpunit-current-test'
+~~~
+
+The full list of keybindings can be found with: `M-x describe-bindings`.
 
 # Conventions
 
