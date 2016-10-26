@@ -1,6 +1,24 @@
 # dot-emacs
  My **.emacs** file and other personal Emacs goodies
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+**Table of Contents**
+
+- [dot-emacs](#dot-emacs)
+- [Overview](#overview)
+- [Description](#description)
+- [Install](#install)
+- [Cheatsheet](#cheatsheet)
+    - [Custom behaviour notes](#custom-behaviour-notes)
+        - [Move between windows](#move-between-windows)
+    - [Personal keybindings](#personal-keybindings)
+    - [php-mode-map](#php-mode-map)
+- [Conventions](#conventions)
+- [.emacs file layout](#emacs-file-layout)
+- [License](#license)
+
+<!-- markdown-toc end -->
+
 # Overview
 
 Personal [GNU Emacs](https://www.gnu.org/s/emacs/) configuration file
