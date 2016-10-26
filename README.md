@@ -119,38 +119,31 @@ Example:
 ;; bootstrap package managers ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'package)
 ...
 
 ;;;;;;;;;;;;;;;;
 ;; global-map ;;
 ;;;;;;;;;;;;;;;;
 
-;;; C-
-
-;; replace default buffer-menu
-(bind-key "C-x C-b" #'ibuffer) 
 ...
 
 ;;;;;;;;;;;;;;;;;;;
 ;; Load packages ;;
 ;;;;;;;;;;;;;;;;;;;
 
-(use-package ace-jump-mode)
 ...
 
 ;;;;;;;;;;;;
 ;; Themes ;;
 ;;;;;;;;;;;;
 
-..
+...
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Core packages customization ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Following package paths
 
-(show-paren-mode t)
 ...
 ~~~
 
