@@ -156,6 +156,11 @@
 ;; Concurrent utility functions for emacs lisp
 ;; https://github.com/kiwanami/emacs-deferred/blob/master/README-concurrent.markdown
 (use-package concurrent)
+;; http://elpa.gnu.org/packages/csv-mode.html
+(use-package csv-mode
+  :commands csv-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode)))
 ;; https://github.com/jacksonrayhamilton/context-coloring
 ;;(use-package context-coloring)
 (use-package ctable)
@@ -320,13 +325,7 @@
   :config
   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 (use-package python-environment)
-
-;; working with Python with company
-;; http://emacs.stackexchange.com/questions/10167/how-to-automatically-run-inferior-process-when-loading-major-mode-for-the-first
-(add-hook 'python-mode 'run-python)
-
 (use-package pyvenv)
-
 ;; "rainbow parentheses"-like mode which highlights delimiters
 ;; such as parentheses, brackets or braces according to their depth. 
 ;; https://github.com/Fanael/rainbow-delimiters
@@ -452,6 +451,10 @@
 ;;;; (menu-bar-mode -1)
 ;; paren
 (show-paren-mode t)
+;; progmodes/python
+;;;; working with Python with company
+;;;; http://emacs.stackexchange.com/questions/10167/how-to-automatically-run-inferior-process-when-loading-major-mode-for-the-first
+(add-hook 'python-mode 'run-python)
 ;; simple
 ;;;; Toggle column number display in the mode line
 (column-number-mode t)
