@@ -152,6 +152,15 @@ Example:
 ...
 ~~~
 
+# Notes
+
+Make sure you customize the `user-mail-address` with your email.
+
+~~~ lisp
+;; lisp/startup
+(setq user-mail-address "me@marcanuy.com")
+~~~
+
 # License
 
 The MIT License (MIT)
