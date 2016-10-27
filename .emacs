@@ -459,25 +459,29 @@
 ;; Emacs 24.5.1 Base Packages
 ;; /usr/share/emacs/24.5/lisp/
 
-;; menu-bar
+;; lisp/menu-bar
 ;;;; Toggle display of a menu bar on each frame (Menu Bar mode).
 ;;;; (menu-bar-mode -1)
-;; paren
+;; lisp/paren
 (show-paren-mode t)
-;; progmodes/python
+;; lisp/progmodes/python
 ;;;; working with Python with company
 ;;;; http://emacs.stackexchange.com/questions/10167/how-to-automatically-run-inferior-process-when-loading-major-mode-for-the-first
 (add-hook 'python-mode 'run-python)
-;; simple
+;; lisp/simple
 ;;;; Toggle column number display in the mode line
 (column-number-mode t)
-;; startup
+;; lisp/startup
+(setq user-mail-address "me@marcanuy.com")
 ;;;; hide default startup screen
 (setq inhibit-startup-message t)
-;; textmodes
-;;;; ispell
-;;;;;; change ispell dictionary to use also with flymake-mode
-;;;;;; can be changed with command: ispell-change-dictionary
+;; lisp/textmodes
+;; lisp/textmodes/text-mode
+;;;;  Automatic line breaking in Text mode and related modes
+(add-hook 'text-mode-hook 'auto-fill-mode)
+;; lisp/textmodes/ispell
+;;;; change ispell dictionary to use also with flymake-mode
+;;;; can be changed with command: ispell-change-dictionary
 (setq ispell-dictionary "english")    ;set the default dictionary
 (put 'downcase-region 'disabled nil)
 ;; tool-bar
