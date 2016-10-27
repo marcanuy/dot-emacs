@@ -145,7 +145,9 @@ Example:
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Core packages customization ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Following package paths
+
+;; file path
+;;;; comment
 
 ...
 ~~~
