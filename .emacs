@@ -239,8 +239,20 @@
 ;;(global-set-key (kbd "C-x r b") 'helm-bookmarks)
 ;;(helm-autoresize-mode 1)
 
-;; Select company-complete candidates by helm. It is useful to narrow company candidates.
+;; Select company-complete candidates by helm. It is useful to narrow
+;; company candidates.
 (use-package helm-company)
+;; Helm frontend for describe-bindings (C-h b) making the currently active key
+;; bindings interactively searchable with helm.
+;; https://github.com/emacs-helm/helm-descbinds
+(use-package helm-descbinds
+  :config
+  (helm-descbinds-mode))
+;; Helm interface to Emacs’s describe-mode (C-h m)
+;; https://github.com/emacs-helm/helm-describe-modes
+(use-package helm-describe-modes
+  :config
+  (global-set-key [remap describe-mode] #'helm-describe-modes))
 ;;  Helm UI for Projectile 
 ;; https://github.com/bbatsov/helm-projectile
 (use-package helm-projectile)
@@ -409,6 +421,7 @@
 ;; can be activated in a buffer by calling M-x writeroom-mode RET
 (use-package writeroom-mode)
 (use-package xcscope)
+;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
 
 ;; A template system for Emacs
