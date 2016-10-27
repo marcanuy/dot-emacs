@@ -41,6 +41,9 @@ Put *.emacs* in any of the default init file paths:
 - `~/.emacs.el`
 - `~/.emacs.d/init.el`
 
+After that, first run will take a while installing all the missing packages
+specified in the file.
+
 # Cheatsheet
 
 ## Custom behaviour notes
@@ -112,7 +115,7 @@ Example:
    ("C-c SPC" . ace-jump-mode-pop-mark)))
 ~~~
 
-# .emacs file layout
+# File layout
 
 ~~~ lisp
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
