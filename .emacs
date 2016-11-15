@@ -73,6 +73,7 @@
 ;; Interact with Bundler from Emacs
 ;; http://github.com/endofunky/bundler.el
 (use-package bundler)
+(use-package camcorder)
 (use-package chess)
 ;; color-moccur 
 ;; (use-package color-moccur
@@ -180,8 +181,6 @@
 ;; https://github.com/dracula/dracula-theme
 ;; https://draculatheme.com/emacs/
 (use-package dracula-theme
-  :init
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
   :config
   (load-theme 'dracula t))
 ;; A RPC stack for the Emacs Lisp
@@ -222,6 +221,7 @@
 (use-package gist)
 (use-package git-commit)
 (use-package google)
+
 ;;(use-package grandshell-theme)
 ;;(use-package gruvbox-theme)
 
@@ -230,7 +230,9 @@
   :bind (("M-x" . helm-M-x)
 	 ("C-x b" . helm-buffers-list)
 	 ("C-x C-f" . helm-find-files)
-	 ("C-x r b" . helm-bookmarks)))
+	 ("C-x r b" . helm-bookmarks))
+  :config
+  (helm-adaptive-mode t))
 ;; replace basic M-x with helm
 ;; vanilla way of setting up helm without use-package
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
@@ -253,9 +255,14 @@
 (use-package helm-describe-modes
   :config
   (global-set-key [remap describe-mode] #'helm-describe-modes))
-;;  Helm UI for Projectile 
+;; Yet another helm to list git file. 
+;; https://github.com/emacs-helm/helm-ls-git
+;; 
+(use-package helm-ls-git
+  :bind (("C-x C-d" . helm-browse-project)))
+;;  Helm UI for Projectile (use helm-ls-git better)
 ;; https://github.com/bbatsov/helm-projectile
-(use-package helm-projectile)
+;;;;(use-package helm-projectile)
 ;;(use-package helm-core)
 (use-package helm-google)
 (use-package helm-gtags)
@@ -269,13 +276,14 @@
   :config
   (highlight-blocks-mode t))
 (use-package ht)
-;; An Emacs mode to manage Jekyll blogs
-;; https://github.com/nibrahim/Hyde
-(use-package hyde)
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
 (use-package inf-php)
+;; inf-ruby - a REPL buffer connected to a Ruby subprocess
+;; https://github.com/nonsequitur/inf-ruby
 (use-package inf-ruby)
+;; convert english words between singular and plural
+;; https://github.com/eschulte/jump.el
 (use-package inflections)
 (use-package interaction-log)
 (use-package jedi)
@@ -298,10 +306,13 @@
 (use-package mmt)
 (use-package moccur-edit)
 ;;(use-package moe-theme)
+;; http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/
 ;;(use-package monokai-theme)
 (use-package multiple-cursors)
 (use-package neotree)
 (use-package pcache)
+;; pcsv provides parser of csv based on rfc4180
+;; https://github.com/mhayashi1120/Emacs-pcsv
 (use-package pcsv)
 
 ;; Projectile integration for perspective.el
@@ -327,15 +338,15 @@
 (use-package pos-tip)
 ;; Project Interaction Library
 ;; https://github.com/bbatsov/projectile
-(use-package projectile
-  :config
-  (projectile-global-mode t))
+;; ;; (use-package projectile
+;; ;;   :config
+;; ;;   (projectile-global-mode t))
 
 ;; Projectile Rails - minor mode for working with Ruby on Rails applications
 ;; https://github.com/asok/projectile-rails
-(use-package projectile-rails
-  :config
-  (add-hook 'projectile-mode-hook 'projectile-rails-on))
+;; ;; (use-package projectile-rails
+;; ;;   :config
+;; ;;   (add-hook 'projectile-mode-hook 'projectile-rails-on))
 (use-package python-environment)
 (use-package pyvenv)
 ;; "rainbow parentheses"-like mode which highlights delimiters
@@ -371,6 +382,9 @@
 ;; https://github.com/antonj/scss-mode
 (use-package scss-mode)
 
+;; https://github.com/bbatsov/solarized-emacs
+(use-package solarized-theme)
+
 ;; smartparens - Minor mode for Emacs that deals with parens
 ;; pairs and tries to be smart about it.
 ;; https://github.com/Fuco1/smartparens
@@ -380,7 +394,31 @@
   (smartparens-global-mode t))
 
 (use-package speed-type)
-(use-package sublimity)
+;; Smooth-scrolling, minimap and distraction free mode like sublime
+;; editor
+;; https://github.com/zk-phi/sublimity
+(use-package sublimity
+  :config
+  (require 'sublimity-scroll)
+  ;;(require 'sublimity-map)
+  (sublimity-mode 1)
+  ;;(require 'sublimity-attractive)
+  )
+
+;; Stack Exchange for Emacs
+;; https://github.com/vermiculus/sx.el
+;; (use-package sx
+;;   :config
+;;   (bind-keys :prefix "C-c s"
+;;              :prefix-map my-sx-map
+;;              :prefix-docstring "Global keymap for SX."
+;;              ("q" . sx-tab-all-questions)
+;;              ("i" . sx-inbox)
+;;              ("o" . sx-open-link)
+;;              ("u" . sx-tab-unanswered-my-tags)
+;;              ("a" . sx-ask)
+;;              ("s" . sx-search)))
+
 (use-package term
   :bind (("C-c t" . term)
          :map term-mode-map
@@ -431,17 +469,17 @@
 (use-package yasnippet
   :config
   (yas-global-mode t))
+;; https://github.com/bbatsov/zenburn-emacs
+;;(use-package zenburn-theme)
 
 ;;;;;;;;;;;;
 ;; Themes ;;
 ;;;;;;;;;;;;
-
-;;(use-package zenburn-theme)
 ;;;;;;;;;;; black-themes ;;;;;;;;;;;;
 ;;(load-theme 'wheatgrass)
 ;;(load-theme 'alect-black)
 ;;(load-theme 'cyberpunk)
-;;;;;;;(load-theme 'gruvbox t)
+;;(load-theme 'gruvbox t)
 ;;(load-theme 'dracula t)
 ;;(load-theme 'monokai)
 ;;(load-theme 'zenburn)
@@ -461,7 +499,7 @@
 
 ;; lisp/menu-bar
 ;;;; Toggle display of a menu bar on each frame (Menu Bar mode).
-;;;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 ;; lisp/paren
 (show-paren-mode t)
 ;; lisp/progmodes/python
@@ -489,3 +527,13 @@
 ;; windmove
 ;;;; Move between windows with Shift-ArrowKeys
 (windmove-default-keybindings)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Custom functions ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+;; edit contrab in emacs
+;; http://emacs.stackexchange.com/a/10080/8563
+(defun crontab-e ()
+    (interactive)
+    (with-editor-async-shell-command "crontab -e"))
