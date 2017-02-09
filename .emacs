@@ -297,7 +297,12 @@
 ;; https://github.com/magit/magit
 (use-package magit)
 (use-package magit-popup)
-(use-package markdown-mode)
+;; Load markdown package with kramdown as its parser
+;; Needs to have the 'kramdown' command locally
+(use-package markdown-mode
+  :config
+  (setq markdown-command "kramdown")
+  )
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
 (use-package marshal)
