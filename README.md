@@ -74,6 +74,7 @@ C-x b             `helm-buffers-list'                     was `switch-to-buffer'
 C-x r b           `helm-bookmarks'                        was `bookmark-jump'
 
 C-x C-b           `ibuffer'                               was `list-buffers'
+C-x C-d           `helm-browse-project'                   was `list-directory'
 C-x C-f           `helm-find-files'                       was `find-file'
 
 M-p               `ace-window'
