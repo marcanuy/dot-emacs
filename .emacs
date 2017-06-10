@@ -198,6 +198,10 @@
 (use-package flymake-easy)
 (use-package flymake-php)
 (use-package flymake-yaml)
+
+;; flyspell-mode
+;; flyspell-auto-correct-previous-word C-;
+
 ;; https://github.com/syohex/emacs-fontawesome
 (use-package fontawesome)
 
@@ -292,6 +296,19 @@
 (use-package json-mode)
 (use-package json-reformat)
 (use-package json-snatcher)
+
+;; https://github.com/mhayashi1120/Emacs-langtool
+(use-package langtool
+  :bind (("\C-x4w" . langtool-check)
+	 ("\C-x4W" . langtool-check-done)
+	 ("\C-x4l" . langtool-switch-default-language)
+	 ("\C-x44" . langtool-show-message-at-point)
+	 ("\C-x4c" . langtool-correct-buffer))
+  :config
+  (setq langtool-language-tool-jar "/opt/LanguageTool-3.7/languagetool-commandline.jar")
+  (setq langtool-default-language "en-US")
+  )
+
 (use-package logito)
 ;; Manage Git inside Emacs
 ;; https://github.com/magit/magit
@@ -339,6 +356,17 @@
 	      ("C-x p" . phpunit-current-project)))
 (use-package pkg-info)
 (use-package polymode)
+
+;; https://github.com/TatriX/pomidor
+;; 
+(use-package pomidor
+  :bind (("<f12>" . pomidor))
+  :init
+  (setq pomidor-sound-tick nil
+        pomidor-sound-tack nil
+	;;pomidor-sound-overwork nil
+	))
+
 (use-package popup)
 (use-package pos-tip)
 ;; Project Interaction Library
