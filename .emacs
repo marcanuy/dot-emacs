@@ -570,3 +570,21 @@
 (defun crontab-e ()
     (interactive)
     (with-editor-async-shell-command "crontab -e"))
+
+;;;;;;;;;;;;;
+;; Writing ;;
+;;;;;;;;;;;;;
+
+;; activate flyspell-mode when editing text (markdown, text, etc)
+(dolist (hook '(markdown-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+;; Ran langtool checker every time a markdown file is saved
+;; https://stackoverflow.com/a/6141681/1165509
+(add-hook 'markdown-mode-hook
+          (lambda () 
+             (add-hook 'after-save-hook 'langtool-check nil 'make-it-local)))
+;; Use flyspell-mode in comments and string of python-mode
+(add-hook 'python-mode-hook
+    (lambda ()
+    (flyspell-prog-mode)
+    ))
