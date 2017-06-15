@@ -181,8 +181,9 @@
 ;; https://github.com/dracula/dracula-theme
 ;; https://draculatheme.com/emacs/
 (use-package dracula-theme
-  :config
-  (load-theme 'dracula t))
+  ;;   :config
+  ;;   (load-theme 'dracula t)
+  )
 ;; A RPC stack for the Emacs Lisp
 ;; https://github.com/kiwanami/emacs-epc
 (use-package epc)
@@ -323,6 +324,10 @@
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
 (use-package marshal)
+;; https://github.com/cpaulik/emacs-material-theme
+(use-package material-theme
+  :config
+  (load-theme 'material t))
 (use-package mkdown)
 (use-package mmm-mode)
 (use-package mmt)
