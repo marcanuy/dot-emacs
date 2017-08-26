@@ -468,6 +468,7 @@
          ("M-n" . term-send-down)))
 (use-package trr)
 (use-package typit)
+(use-package typescript-mode)
 (use-package virtualenvwrapper)
 (use-package visual-fill-column)
 (use-package web-completion-data)
