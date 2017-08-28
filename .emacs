@@ -320,6 +320,7 @@
 (use-package markdown-mode
   :config
   (setq markdown-command "kramdown")
+  (markdown-toggle-fontify-code-blocks-natively t)
   )
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
