@@ -566,6 +566,9 @@
 ;; Emacs 24.5.1 Base Packages
 ;; /usr/share/emacs/24.5/lisp/
 
+;; maximize Emacs frame on start-up
+;; https://emacs.stackexchange.com/a/3008/8563
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; lisp/menu-bar
 ;;;; Toggle display of a menu bar on each frame (Menu Bar mode).
 (menu-bar-mode -1)
