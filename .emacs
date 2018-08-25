@@ -1,5 +1,5 @@
 ;; Personal init file for Emacs
-;; Copyright (C) 2013-2017 Marcelo Canina
+;; Copyright (C) 2013-2018 Marcelo Canina
 
 ;;;;;;;;;;;;;;
 ;; SECTIONS ;;
