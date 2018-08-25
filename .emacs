@@ -356,6 +356,7 @@
 (use-package markdown-mode
   :config
   (setq markdown-command "kramdown")
+  (markdown-toggle-fontify-code-blocks-natively t)
   )
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
@@ -499,6 +500,7 @@
          ("M-n" . term-send-down)))
 (use-package trr)
 (use-package typit)
+(use-package typescript-mode)
 (use-package virtualenvwrapper)
 (use-package visual-fill-column)
 (use-package web-completion-data)
