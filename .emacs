@@ -76,9 +76,10 @@
 
 ;; Code navigation, documentation lookup and completion for Python
 ;; https://github.com/proofit404/anaconda-mode
-(use-package anaconda-mode
-  :config
-  (add-hook 'python-mode-hook 'anaconda-mode))
+;; (use-package anaconda-mode
+;;   :config
+;;   (add-hook 'python-mode-hook 'anaconda-mode))
+
 ;; auto-complete -  Emacs auto-complete package
 ;; https://github.com/auto-complete/auto-complete
 (use-package auto-complete)
@@ -134,9 +135,10 @@
 
 ;; company-anaconda - Anaconda backend for company-mode.
 ;; https://github.com/proofit404/company-anaconda
-(use-package company-anaconda
-  :config
-  (add-hook 'python-mode-hook 'anaconda-mode))
+;; (use-package company-anaconda
+;;   :config
+;;   (add-hook 'python-mode-hook 'anaconda-mode))
+
 (use-package company-emoji)
 ;; company-mode completion backend for ghc-mod
 ;; https://github.com/iquiw/company-ghc
@@ -219,6 +221,20 @@
 (use-package flymake-easy)
 (use-package flymake-php)
 (use-package flymake-yaml)
+
+;; A modern on-the-fly syntax checking extension for GNU Emacs,
+;; intended as replacement for the older Flymake extension which is
+;; part of GNU Emacs.  http://www.flycheck.org/en/latest/
+;; (for python it needs: pip install pylint)
+;; check whether your Flycheck setup is complete in the desired buffer: C-c ! v
+;; jump through errors:  C-c ! n and C-c ! p
+;; list all errors: C-c ! l 
+(use-package flycheck
+  :ensure t
+  :init
+  (global-flycheck-mode)
+  (setq flycheck-python-pylint-executable "pylint3")
+  (setq flycheck-python-flake8-executable "python -m flake8"))
 
 ;; flyspell-mode
 ;; flyspell-auto-correct-previous-word C-;
