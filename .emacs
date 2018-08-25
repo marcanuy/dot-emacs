@@ -416,13 +416,8 @@
 ;; ;;   :config
 ;; ;;   (projectile-global-mode t))
 
-;; Projectile Rails - minor mode for working with Ruby on Rails applications
-;; https://github.com/asok/projectile-rails
-;; ;; (use-package projectile-rails
-;; ;;   :config
-;; ;;   (add-hook 'projectile-mode-hook 'projectile-rails-on))
-(use-package python-environment)
 (use-package pyvenv)
+
 ;; "rainbow parentheses"-like mode which highlights delimiters
 ;; such as parentheses, brackets or braces according to their depth. 
 ;; https://github.com/Fanael/rainbow-delimiters
