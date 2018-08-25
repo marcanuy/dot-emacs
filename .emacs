@@ -307,8 +307,6 @@
 ;;(use-package helm-core)
 (use-package helm-google)
 (use-package helm-gtags)
-;; http://www.emacswiki.org/help-fns+.el
-(use-package help-fns+)
 (use-package hi-lock
   :bind (("M-o l" . highlight-lines-matching-regexp)
          ("M-o r" . highlight-regexp)
@@ -319,10 +317,6 @@
 (use-package ht)
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
-(use-package inf-php)
-;; inf-ruby - a REPL buffer connected to a Ruby subprocess
-;; https://github.com/nonsequitur/inf-ruby
-(use-package inf-ruby)
 ;; convert english words between singular and plural
 ;; https://github.com/eschulte/jump.el
 (use-package inflections)
