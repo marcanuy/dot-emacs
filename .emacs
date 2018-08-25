@@ -1,3 +1,23 @@
+;; Personal init file for Emacs
+;; Copyright (C) 2013-2017 Marcelo Canina
+
+;;;;;;;;;;;;;;
+;; SECTIONS ;;
+;;;;;;;;;;;;;;
+;;
+;; - bootstrap package managers
+;;   - load use-package
+;; - global-map
+;;   - redefine global mappings
+;; - Load packages
+;;   - load new packages
+;; - Core packages customization
+;;   - change preinstalled packages behaviour
+;; - Custom functions
+;;   - new functions defitions
+;;
+;;
+
 ;; http://stackoverflow.com/questions/1217180/how-do-i-byte-compile-everything-in-my-emacs-d-directory
 ;;(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
 
