@@ -391,6 +391,9 @@
 	      ("C-x c" . phpunit-current-class)
 	      ("C-x p" . phpunit-current-project)))
 (use-package pkg-info)
+(use-package po-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode)))
 (use-package polymode)
 
 ;; https://github.com/TatriX/pomidor
