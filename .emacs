@@ -307,10 +307,6 @@
 (use-package ht)
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
-;; inf-ruby - a REPL buffer connected to a Ruby subprocess
-;; https://github.com/nonsequitur/inf-ruby
-(use-package inf-ruby)
-;; https://github.com/eschulte/jump.el
 (use-package interaction-log)
 (use-package jedi)
 (use-package jedi-core)
@@ -383,6 +379,9 @@
 (use-package plantuml-mode
   :init
   (setq plantuml-jar-path "/usr/share/plantuml/plantuml.jar"))
+(use-package po-mode
+  :config
+  (add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode)))
 (use-package polymode)
 
 ;; https://github.com/TatriX/pomidor
