@@ -1,5 +1,5 @@
 ;; Personal init file for Emacs
-;; Copyright (C) 2013-2018 Marcelo Canina
+;; Copyright (C) 2013-2019 Marcelo Canina
 
 ;;;;;;;;;;;;;;
 ;; SECTIONS ;;
@@ -30,8 +30,6 @@
 	     '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives
 	     '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 ;; bootstrap use-package
@@ -121,14 +119,12 @@
   :bind (("C-?" . company-complete))
   :config
   (global-company-mode t)
-  (add-to-list 'company-backends '(company-anaconda :with company-capf))
   (add-to-list 'company-backends 'company-emoji)
   (add-to-list 'company-backends 'company-ghc)
   (add-to-list 'company-backends 'company-ghci)
   (add-to-list 'company-backends 'company-go)
   (add-to-list 'company-backends 'company-ac-php-backend) ;; provided by company-php
   (add-to-list 'company-backends 'company-robe)
-  (add-to-list 'company-backends 'company-jedi)
   (add-to-list 'company-backends 'company-restclient)
   (add-to-list 'company-backends '(company-shell company-fish-shell))
   (add-to-list 'company-backends 'company-web-html))
@@ -147,8 +143,6 @@
 (use-package company-ghci)
 ;; company-mode backend for Go (using gocode)
 (use-package company-go)
-;; Completion back-end for Python JEDI.
-(use-package company-jedi)
 ;; https://github.com/xcwen/ac-php
 (use-package company-php)
 ;; Documentation popup for Company - https://github.com/expez/company-quickhelp
@@ -194,9 +188,6 @@
 ;; Simple asynchronous functions for emacs lisp
 ;; https://github.com/kiwanami/emacs-deferred
 (use-package deferred)
-;; Diminished modes are minor modes with no modeline display
-;; https://github.com/myrjola/diminish.el
-(use-package diminish)
 ;;https://github.com/thamer/diredful
 ;;(use-package diredful)
 ;; dracula-theme - A dark theme for Atom, Alfred, Emacs,...
@@ -261,7 +252,6 @@
 (use-package gh-md)
 (use-package gist)
 (use-package git-commit)
-(use-package google)
 
 ;;(use-package grandshell-theme)
 ;;(use-package gruvbox-theme)
@@ -307,8 +297,6 @@
 ;;(use-package helm-core)
 (use-package helm-google)
 (use-package helm-gtags)
-;; http://www.emacswiki.org/help-fns+.el
-(use-package help-fns+)
 (use-package hi-lock
   :bind (("M-o l" . highlight-lines-matching-regexp)
          ("M-o r" . highlight-regexp)
@@ -319,13 +307,10 @@
 (use-package ht)
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
-(use-package inf-php)
 ;; inf-ruby - a REPL buffer connected to a Ruby subprocess
 ;; https://github.com/nonsequitur/inf-ruby
 (use-package inf-ruby)
-;; convert english words between singular and plural
 ;; https://github.com/eschulte/jump.el
-(use-package inflections)
 (use-package interaction-log)
 (use-package jedi)
 (use-package jedi-core)
@@ -356,7 +341,6 @@
 (use-package markdown-mode
   :config
   (setq markdown-command "kramdown")
-  (markdown-toggle-fontify-code-blocks-natively t)
   )
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
@@ -368,7 +352,6 @@
 (use-package mkdown)
 (use-package mmm-mode)
 (use-package mmt)
-(use-package moccur-edit)
 ;;(use-package moe-theme)
 ;; http://www.monokai.nl/blog/2006/07/15/textmate-color-theme/
 ;;(use-package monokai-theme)
@@ -397,6 +380,9 @@
 	      ("C-x c" . phpunit-current-class)
 	      ("C-x p" . phpunit-current-project)))
 (use-package pkg-info)
+(use-package plantuml-mode
+  :init
+  (setq plantuml-jar-path "/usr/share/plantuml/plantuml.jar"))
 (use-package polymode)
 
 ;; https://github.com/TatriX/pomidor
@@ -432,7 +418,6 @@
 ;; Type M-x rainbow-mode. Rbow should be added to the mode-line,
 ;; indicating that Rainbow mode is in effect.
 (use-package rainbow-mode)
-(use-package rake)
 ;; https://github.com/pashky/restclient.el
 ;; This is a tool to manually explore and test HTTP REST webservices.
 ;; Runs queries from a plain-text query sheet, displays results as a
@@ -500,8 +485,6 @@
          ("M-n" . term-send-down)))
 (use-package trr)
 (use-package typit)
-(use-package typescript-mode)
-(use-package virtualenvwrapper)
 (use-package visual-fill-column)
 (use-package web-completion-data)
 ;; web-mode is an autonomous emacs major-mode for editing web templates.
@@ -612,6 +595,7 @@
     (interactive)
     (with-editor-async-shell-command "crontab -e"))
 
+
 ;;;;;;;;;;;;;
 ;; Writing ;;
 ;;;;;;;;;;;;;
@@ -621,9 +605,9 @@
   (add-hook hook (lambda () (flyspell-mode 1))))
 ;; Ran langtool checker every time a markdown file is saved
 ;; https://stackoverflow.com/a/6141681/1165509
-(add-hook 'markdown-mode-hook
-          (lambda () 
-             (add-hook 'after-save-hook 'langtool-check nil 'make-it-local)))
+;; (add-hook 'markdown-mode-hook
+;;           (lambda () 
+;;              (add-hook 'after-save-hook 'langtool-check nil 'make-it-local)))
 ;; Use flyspell-mode in comments and string of python-mode
 (add-hook 'python-mode-hook
     (lambda ()
