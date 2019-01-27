@@ -308,8 +308,6 @@
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
 (use-package interaction-log)
-(use-package jedi)
-(use-package jedi-core)
 (use-package js2-mode)
 (use-package json-mode)
 (use-package json-reformat)
