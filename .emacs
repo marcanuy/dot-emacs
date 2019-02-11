@@ -58,11 +58,6 @@
 ;; Load packages ;;
 ;;;;;;;;;;;;;;;;;;;
 
-;; ace-jump-mode a quick cursor jump mode for emacs
-;; https://github.com/winterTTr/ace-jump-mode
-(use-package ace-jump-mode
-  :bind  (("C-." . ace-jump-mode)
-	  ("C-c SPC" . ace-jump-mode-pop-mark)))
 (use-package ac-php)
 (use-package ac-php-core)
 ;; ace-window
@@ -87,6 +82,11 @@
 ;; emacs-async - Simple library for asynchronous processing in Emacs
 ;; https://github.com/jwiegley/emacs-async
 (use-package async)
+;; jumping to visible text using a char-based decision tree
+;; https://github.com/abo-abo/avy
+(use-package avy
+  :bind  (("C-:" . avy-goto-char) ;; Input one char, jump to it with a tree. eg. C-: b
+	  ("C-c '" . avy-goto-char-2))) ;; Input two chars e.g.: C-' bu
 ;; A simple way to manage personal keybindings
 (use-package bind-key)
 ;; Interact with Bundler from Emacs
