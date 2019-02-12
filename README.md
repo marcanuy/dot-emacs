@@ -54,8 +54,6 @@ specified in the file.
   - `M-p` **ace-window**
 - Traverse the window list:
   - `C-x o` **other-window**
-- Go directly to a speific word in any window
-  - `C-.` **ace-jump-mode**
 
 ## Personal keybindings
 
@@ -65,61 +63,38 @@ The list resulting after executing `M-x describe-personal-keybindings`.
 Key name          Command                                 Comments
 ----------------- --------------------------------------- ---------------------
 44              `langtool-show-message-at-point'
-44              `langtool-show-message-at-point'
 4W              `langtool-check-done'
-4W              `langtool-check-done'
-4c              `langtool-correct-buffer'
 4c              `langtool-correct-buffer'               was `clone-indirect-buffer-other-window'
 4l              `langtool-switch-default-language'
-4l              `langtool-switch-default-language'
-4w              `langtool-check'
 4w              `langtool-check'
 <f12>             `pomidor'
-<f12>             `pomidor'
 
-C-.               `ace-jump-mode'
-C-.               `ace-jump-mode'
-C-?               `company-complete'
+C-:               `avy-goto-char'
 C-?               `company-complete'
 
-C-c SPC           `ace-jump-mode-pop-mark'
-C-c SPC           `ace-jump-mode-pop-mark'
-C-c t             `term'
+C-c '             `avy-goto-char-2'
 C-c t             `term'
 
-C-x b             `helm-buffers-list'
 C-x b             `helm-buffers-list'                     was `switch-to-buffer'
-C-x r b           `helm-bookmarks'
 C-x r b           `helm-bookmarks'                        was `bookmark-jump'
 
-C-x C-b           `ibuffer'
 C-x C-b           `ibuffer'                               was `list-buffers'
-C-x C-d           `helm-browse-project'
 C-x C-d           `helm-browse-project'                   was `list-directory'
-C-x C-f           `helm-find-files'
 C-x C-f           `helm-find-files'                       was `find-file'
 
 M-p               `ace-window'
-M-p               `ace-window'
-M-x               `helm-M-x'
 M-x               `helm-M-x'                              was `execute-extended-command'
 
-M-o l             `highlight-lines-matching-regexp'
 M-o l             `highlight-lines-matching-regexp'       was `facemenu-set-bold-italic'
 M-o r             `highlight-regexp'
-M-o r             `highlight-regexp'
-M-o w             `highlight-phrase'
 M-o w             `highlight-phrase'
 
 
-php-mode-map
+php-mode-map: C-x c
 -------------------------------------------------------------------------------
 
 C-x c             `phpunit-current-class'
-C-x c             `phpunit-current-class'
 C-x p             `phpunit-current-project'
-C-x p             `phpunit-current-project'
-C-x t             `phpunit-current-test'
 C-x t             `phpunit-current-test'
 ~~~
 
