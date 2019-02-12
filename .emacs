@@ -524,6 +524,9 @@
 (use-package yasnippet
   :config
   (yas-global-mode t))
+;; snippets repository https://github.com/AndreaCrotti/yasnippet-snippets
+(use-package yasnippet-snippets)
+
 ;; https://github.com/bbatsov/zenburn-emacs
 ;;(use-package zenburn-theme)
 
