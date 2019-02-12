@@ -260,10 +260,14 @@
 (use-package helm
   :bind (("M-x" . helm-M-x)
 	 ("C-x b" . helm-buffers-list)
+	 ("C-x r b" . helm-bookmarks)
 	 ("C-x C-f" . helm-find-files)
-	 ("C-x r b" . helm-bookmarks))
+	 ("C-x C-l" . helm-locate)
+	 ("C-x M-s o" . helm-occur)
+	 )
   :config
   (helm-adaptive-mode t))
+
 ;; replace basic M-x with helm
 ;; vanilla way of setting up helm without use-package
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
