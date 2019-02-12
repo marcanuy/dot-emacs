@@ -75,19 +75,24 @@ C-?               `company-complete'
 C-c '             `avy-goto-char-2'
 C-c t             `term'
 
-C-x b             `helm-buffers-list'                     was `switch-to-buffer'
-C-x r b           `helm-bookmarks'                        was `bookmark-jump'
+C-x b             `helm-buffers-list'
+C-x r b           `helm-bookmarks'
 
 C-x C-b           `ibuffer'                               was `list-buffers'
 C-x C-d           `helm-browse-project'                   was `list-directory'
-C-x C-f           `helm-find-files'                       was `find-file'
+C-x C-f           `helm-find-files'
+C-x C-l           `helm-locate'
+
+C-x M-s o         `helm-occur'
 
 M-p               `ace-window'
-M-x               `helm-M-x'                              was `execute-extended-command'
+M-x               `helm-M-x'
 
 M-o l             `highlight-lines-matching-regexp'       was `facemenu-set-bold-italic'
 M-o r             `highlight-regexp'
 M-o w             `highlight-phrase'
+
+c-x c-l           `helm-locate'                           [now: `1']
 
 
 php-mode-map: C-x c
