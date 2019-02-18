@@ -58,8 +58,6 @@
 ;; Load packages ;;
 ;;;;;;;;;;;;;;;;;;;
 
-(use-package ac-php)
-(use-package ac-php-core)
 ;; ace-window
 ;; https://github.com/abo-abo/ace-window
 (use-package ace-window
@@ -76,9 +74,7 @@
 ;; auto-complete -  Emacs auto-complete package
 ;; https://github.com/auto-complete/auto-complete
 (use-package auto-complete)
-;; Auto activate python virtualenvs
-;; http://github.com/marcwebbie/auto-virtualenv
-(use-package auto-virtualenv)
+
 ;; emacs-async - Simple library for asynchronous processing in Emacs
 ;; https://github.com/jwiegley/emacs-async
 (use-package async)
@@ -89,10 +85,7 @@
 	  ("C-c '" . avy-goto-char-2))) ;; Input two chars e.g.: C-' bu
 ;; A simple way to manage personal keybindings
 (use-package bind-key)
-;; Interact with Bundler from Emacs
-;; http://github.com/endofunky/bundler.el
-(use-package bundler)
-(use-package camcorder)
+
 (use-package chess)
 ;; color-moccur 
 ;; (use-package color-moccur
@@ -105,7 +98,7 @@
 ;;   (setq isearch-lazy-highlight t)
 ;;   :config
 ;;   (use-package moccur-edit))
-(use-package command-log-mode)
+
 ;; Company autocomplete
 ;; http://company-mode.github.io/
 ;; Completion will start automatically after you type a few letters.
@@ -119,13 +112,12 @@
   :bind (("C-?" . company-complete))
   :config
   (global-company-mode t)
+  ;(add-to-list 'company-backends '(company-anaconda :with company-capf))
   (add-to-list 'company-backends 'company-emoji)
   (add-to-list 'company-backends 'company-ghc)
   (add-to-list 'company-backends 'company-ghci)
   (add-to-list 'company-backends 'company-go)
   (add-to-list 'company-backends 'company-ac-php-backend) ;; provided by company-php
-  (add-to-list 'company-backends 'company-robe)
-  (add-to-list 'company-backends 'company-restclient)
   (add-to-list 'company-backends '(company-shell company-fish-shell))
   (add-to-list 'company-backends 'company-web-html))
 
@@ -158,7 +150,7 @@
   :config
   (company-quickhelp-mode 1))
 
-(use-package company-restclient)
+
 ;; https://github.com/Alexander-Miller/company-shell
 (use-package company-shell)
 ;; Plugin for autocompletion in html-mode, web-mode, jade-mode, slim-mode
@@ -203,15 +195,10 @@
 ;; Emacs Package Library
 ;; http://github.com/cask/epl
 (use-package epl)
-;; Manipulate sqlite file from Emacs
-;; https://github.com/mhayashi1120/Emacs-esqlite
-(use-package esqlite)
 ;; Modern API for working with files and directories
 ;; http://github.com/rejeep/f.el
 (use-package f)
 (use-package flymake-easy)
-(use-package flymake-php)
-(use-package flymake-yaml)
 
 ;; A modern on-the-fly syntax checking extension for GNU Emacs,
 ;; intended as replacement for the older Flymake extension which is
@@ -244,12 +231,6 @@
 (use-package ggtags)
 (use-package gh)
 
-;; Render markdown using the Github API.
-;; https://github.com/emacs-pe/gh-md.el
-;; After install gh-md.el you can use the functions gh-md-render-region and
-;; gh-md-render-buffer to generate a preview of the markdown content of a
-;; buffer.
-(use-package gh-md)
 (use-package gist)
 (use-package git-commit)
 
@@ -267,7 +248,6 @@
 	 )
   :config
   (helm-adaptive-mode t))
-
 ;; replace basic M-x with helm
 ;; vanilla way of setting up helm without use-package
 ;;(global-set-key (kbd "M-x") 'helm-M-x)
@@ -301,16 +281,21 @@
 ;;(use-package helm-core)
 (use-package helm-google)
 (use-package helm-gtags)
+;; http://www.emacswiki.org/help-fns+.el
+;;(use-package help-fns+)
 (use-package hi-lock
   :bind (("M-o l" . highlight-lines-matching-regexp)
          ("M-o r" . highlight-regexp)
          ("M-o w" . highlight-phrase)))
-(use-package highlight-blocks
-  :config
-  (highlight-blocks-mode t))
+
 (use-package ht)
 ;;(autoload 'ibuffer "ibuffer" "List buffers." t)
 (use-package ibuffer-projectile)
+;;(use-package inf-php)
+;; inf-ruby - a REPL buffer connected to a Ruby subprocess
+;; https://github.com/nonsequitur/inf-ruby
+(use-package inf-ruby)
+;; https://github.com/eschulte/jump.el
 (use-package interaction-log)
 (use-package js2-mode)
 (use-package json-mode)
@@ -337,8 +322,8 @@
 ;; Load markdown package with kramdown as its parser
 ;; Needs to have the 'kramdown' command locally
 (use-package markdown-mode
-  :config
-  (setq markdown-command "kramdown")
+  ;; :config
+  ;; (setq markdown-command "kramdown")
   )
 (use-package markdown-preview-eww)
 (use-package markdown-toc)
@@ -347,7 +332,6 @@
 (use-package material-theme
   :config
   (load-theme 'material t))
-(use-package mkdown)
 (use-package mmm-mode)
 (use-package mmt)
 ;;(use-package moe-theme)
@@ -381,9 +365,6 @@
 (use-package plantuml-mode
   :init
   (setq plantuml-jar-path "/usr/share/plantuml/plantuml.jar"))
-(use-package po-mode
-  :config
-  (add-to-list 'auto-mode-alist '("\\.po\\'" . po-mode)))
 (use-package polymode)
 
 ;; https://github.com/TatriX/pomidor
@@ -424,11 +405,6 @@
 ;; Runs queries from a plain-text query sheet, displays results as a
 ;; pretty-printed XML, JSON and even images.
 (use-package restclient)
-;; Robe - Code navigation, documentation lookup and completion for Ruby
-;; https://github.com/dgutov/robe
-(use-package robe
-  :init
-  (add-hook 'ruby-mode-hook 'robe-mode))
 
 ;; S - The long lost Emacs string manipulation library.
 ;; https://github.com/magnars/s.el
@@ -509,18 +485,12 @@
 ;; Use the Emacsclient as the $EDITOR of child processes
 ;; https://github.com/magit/with-editor
 (use-package with-editor)
-;; Writeroom-mode: distraction-free writing for Emacs. 
-;; https://github.com/joostkremers/writeroom-mode
-;; can be activated in a buffer by calling M-x writeroom-mode RET
-(use-package writeroom-mode)
 (use-package xcscope)
 ;; https://github.com/yoshiki/yaml-mode
 (use-package yaml-mode)
 
 ;; A template system for Emacs
 ;; https://github.com/joaotavora/yasnippet
-;; snippets repository https://github.com/AndreaCrotti/yasnippet-snippets
-;; cloned in yasnippet/snippets
 (use-package yasnippet
   :config
   (yas-global-mode t))
