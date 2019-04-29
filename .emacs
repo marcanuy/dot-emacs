@@ -222,11 +222,14 @@
 
 ;; Print a fortune in your Emacs scratch buffer
 ;; https://github.com/andschwa/fortune-cookie
-;; $sudo apt-get install fortunes fortunes-it fortunes-es
+;; $sudo apt-get install fortunes fortunes-it fortunes-es cowsay*
 (use-package fortune-cookie
-  :config
-  (setq fortune-cookie-cowsay-args  "-f tux -s")
-  (fortune-cookie-mode))
+  :custom
+  (fortune-cookie-fortune-string
+   "History repeats itself: the first time as tragedy, the second time as farce.")
+  (fortune-cookie-cowsay-enable (executable-find "cowsay"))
+  (fortune-cookie-cowsay-args '("-f" "tux"))
+  :config (fortune-cookie-mode))
 
 (use-package ggtags)
 (use-package gh)
