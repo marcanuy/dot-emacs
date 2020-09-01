@@ -368,6 +368,7 @@
 (use-package plantuml-mode
   :init
   (setq plantuml-jar-path "/usr/share/plantuml/plantuml.jar"))
+(use-package po-mode)
 (use-package polymode)
 
 ;; https://github.com/TatriX/pomidor
