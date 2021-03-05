@@ -357,7 +357,6 @@
   :config
   (persp-mode))
 
-(use-package php-auto-yasnippets)
 (use-package php-mode)
 (use-package phpunit
   :bind (:map php-mode-map
